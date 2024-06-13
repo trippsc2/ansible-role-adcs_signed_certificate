@@ -13,7 +13,7 @@ DEPRECATED: Use trippsc2.adcs.signed_certificate instead.
 ## Dependencies
 | Role |
 | ---- |
-| trippsc2.general.generate_csr |
+| trippsc2.generate_csr |
 
 | Collection |
 | ---------- |
