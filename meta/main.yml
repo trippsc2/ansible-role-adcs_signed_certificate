@@ -23,4 +23,4 @@ collections:
   - community.crypto
 
 dependencies:
-  - role: trippsc2.general.generate_csr
+  - role: trippsc2.generate_csr
