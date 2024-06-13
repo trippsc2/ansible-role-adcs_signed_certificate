@@ -5,7 +5,7 @@ output_mode: replace
 output_template: |
   <!-- BEGIN_ANSIBLE_DOCS -->
   
-  # Ansible Role: {{ metadata.galaxy_info.namespace }}.{{ metadata.galaxy_info.role_name }}
+  # Ansible Role: {{ role }}
   {%- if "version" in galaxy_collection %}
   Version: {{ galaxy_collection.version }}
   {% endif %}
@@ -18,15 +18,16 @@ output_template: |
   | Platform | Versions |
   | -------- | -------- |
   {%- for platform in metadata.galaxy_info.platforms %}
-  | {{ platform.name }} | {{ platform.versions | default([]) | join(', ') }} |
+  | {{ platform.name }} | <ul>{% for version in platform.versions | default([]) %}<li>{{ version }}</li>{% endfor %}</ul> |
   {%- endfor %}
   {%- endif %}
 
   ## Dependencies
   {%- if ("dependencies" in metadata) and (metadata.dependencies | length > 0) %}
-  Roles:
+  | Role |
+  | ---- |
   {%- for dependency in metadata.dependencies %}
-  - {{ dependency.role }}
+  | {{ dependency.role }} |
   {%- endfor %}
   {%- endif %}
   {% if ("collections" in metadata) and metadata.collections | length > 0 %}

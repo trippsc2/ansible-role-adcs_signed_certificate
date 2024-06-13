@@ -8,4 +8,4 @@
       delegate_facts: true
       ansible.builtin.setup:
   roles:
-    - role: trippsc2.adcs_signed_certificate
+    - role: trippsc2.adcs.signed_certificate
